@@ -1,3 +1,3 @@
 # w205_ex1
 
-set up repo
+MIDS w205 exercise 1 repo
