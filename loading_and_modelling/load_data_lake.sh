@@ -6,7 +6,7 @@ cd /data/lei_ex1
 wget https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip
 unzip Nqc*
 
-# rename files & get rid of header
+# get rid of header and rename files
 tail -n +2 "Hospital General Information.csv" > "hospitals.csv"
 tail -n +2 "Timely and Effective Care - Hospital.csv" > "effective_care.csv"
 tail -n +2 "Readmissions and Deaths - Hospital.csv" > "readmissions.csv"
