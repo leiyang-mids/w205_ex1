@@ -1,1 +1,1 @@
-select test
+select test from another_test;
