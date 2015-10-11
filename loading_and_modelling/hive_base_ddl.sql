@@ -1,6 +1,6 @@
 -- external table for effective_care.csv
-drop table effective;
-create external table effective (
+drop table e_effective;
+create external table e_effective (
   Provider_ID string,  Hospital_Name string,
   Address string,  City string,  State string,  ZIP string,
   County string,  Phone string,
@@ -16,8 +16,8 @@ stored as textfile
 location '/user/w205/hospital_compare/effective_csv';
 
 -- external table for hospitals.csv
-drop table hospital;
-create external table hospital (
+drop table e_hospital;
+create external table e_hospital (
   ID string,  Name string,
   Address string,  City string,  State string,  ZIP string,
   County string,  Phone string,
@@ -31,8 +31,8 @@ stored as textfile
 location '/user/w205/hospital_compare/hospital_csv';
 
 -- external table for measure_dates.csv
-drop table measure;
-create external table measure (
+drop table e_measure;
+create external table e_measure (
   Name string, ID string,
   Start_Qt string, Start_Date string,
   End_Qt string, End_Date string
@@ -43,8 +43,8 @@ stored as textfile
 location '/user/w205/hospital_compare/measure_csv';
 
 -- external table for Readmissions.csv
-drop table readmission;
-create external table readmission (
+drop table e_readmission;
+create external table e_readmission (
   ID string,  Name string,
   Address string,  City string,  State string,  ZIP string,
   County string,  Phone string,
@@ -60,8 +60,8 @@ stored as textfile
 location '/user/w205/hospital_compare/readmission_csv';
 
 -- external table for survey.csv
-drop table survey;
-create external table survey (
+drop table e_survey;
+create external table e_survey (
   Provider_ID string,Hospital_Name string,
   Address string, City string, State string, ZIP string, County string,
   Com_Nur_Ach string,
