@@ -12,18 +12,18 @@ wait
 unzip Nqc*
 
 echo "# get rid of header and rename files"
-tail -n +2 "Hospital General Information.csv" > "hospitals.csv"
-tail -n +2 "Timely and Effective Care - Hospital.csv" > "effective_care.csv"
-tail -n +2 "Readmissions and Deaths - Hospital.csv" > "readmissions.csv"
-tail -n +2 "Measure Dates.csv" > "measure_dates.csv"
-tail -n +2 "hvbp_hcahps_05_28_2015.csv" > "surveys_responses.csv"
+tail -n +2 "Hospital General Information.csv" > "hospitals1.csv"
+tail -n +2 "Timely and Effective Care - Hospital.csv" > "effective_care1.csv"
+tail -n +2 "Readmissions and Deaths - Hospital.csv" > "readmissions1.csv"
+tail -n +2 "Measure Dates.csv" > "measure_dates1.csv"
+tail -n +2 "hvbp_hcahps_05_28_2015.csv" > "surveys_responses1.csv"
 
 echo "# get rid of double quotes in the file to facilitate format castting when define Hive table"
-sed 's/\"//g' hospitals.csv > hospitals.csv
-sed 's/\"//g' effective_care.csv > effective_care.csv
-sed 's/\"//g' readmissions.csv > readmissions.csv
-sed 's/\"//g' measure_dates.csv > measure_dates.csv
-sed 's/\"//g' surveys_responses.csv > surveys_responses.csv
+sed 's/\"//g' hospitals1.csv > hospitals.csv
+sed 's/\"//g' effective_care1.csv > effective_care.csv
+sed 's/\"//g' readmissions1.csv > readmissions.csv
+sed 's/\"//g' measure_dates1.csv > measure_dates.csv
+sed 's/\"//g' surveys_responses1.csv > surveys_responses.csv
 
 echo "# create /user/w205/hospital_compare folder in HDFS"
 hdfs dfs -rm -r /user/w205/hospital_compare
@@ -47,4 +47,4 @@ echo "# data loading successfully completed!"
 
 echo "# remove local folder"
 cd ..
-rm /data/lei_ex1 -r
+#rm /data/lei_ex1 -r
