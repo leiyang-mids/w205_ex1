@@ -18,7 +18,15 @@ tail -n +2 "Readmissions and Deaths - Hospital.csv" > "readmissions.csv"
 tail -n +2 "Measure Dates.csv" > "measure_dates.csv"
 tail -n +2 "hvbp_hcahps_05_28_2015.csv" > "surveys_responses.csv"
 
+echo "# get rid of double quotes in the file to facilitate format castting when define Hive table"
+sed 's/\"//g' hospitals.csv > hospitals.csv
+sed 's/\"//g' effective_care.csv > effective_care.csv
+sed 's/\"//g' readmissions.csv > readmissions.csv
+sed 's/\"//g' measure_dates.csv > measure_dates.csv
+sed 's/\"//g' surveys_responses.csv > surveys_responses.csv
+
 echo "# create /user/w205/hospital_compare folder in HDFS"
+hdfs dfs -rm -r /user/w205/hospital_compare
 hdfs dfs -mkdir /user/w205/hospital_compare
 hdfs dfs -mkdir /user/w205/hospital_compare/hospital_csv
 hdfs dfs -mkdir /user/w205/hospital_compare/effective_csv
