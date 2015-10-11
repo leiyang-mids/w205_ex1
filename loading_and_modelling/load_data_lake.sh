@@ -47,4 +47,4 @@ echo "# data loading successfully completed!"
 
 echo "# remove local folder"
 cd ..
-#rm /data/lei_ex1 -r
+rm /data/lei_ex1 -r
