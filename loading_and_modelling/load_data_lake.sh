@@ -25,7 +25,7 @@ sed 's/\"//g' readmissions1.csv > readmissions.csv
 sed 's/\"//g' measure_dates1.csv > measure_dates.csv
 sed 's/\"//g' surveys_responses1.csv > surveys_responses.csv
 
-echo "# create /user/w205/hospital_compare folder in HDFS"
+echo "# creating /user/w205/hospital_compare folder in HDFS ..."
 hdfs dfs -rm -r /user/w205/hospital_compare
 hdfs dfs -mkdir /user/w205/hospital_compare
 hdfs dfs -mkdir /user/w205/hospital_compare/hospital_csv
@@ -34,7 +34,7 @@ hdfs dfs -mkdir /user/w205/hospital_compare/readmission_csv
 hdfs dfs -mkdir /user/w205/hospital_compare/measure_csv
 hdfs dfs -mkdir /user/w205/hospital_compare/survey_csv
 
-echo "# load the raw data files into HDFS under /user/w205/hospital_compare"
+echo "# loading the raw data files into HDFS under /user/w205/hospital_compare ..."
 # separate csv folder to facilitate creating external table
 hdfs dfs -put hospitals.csv /user/w205/hospital_compare/hospital_csv/hospitals.csv
 hdfs dfs -put effective_care.csv /user/w205/hospital_compare/effective_csv/effective_care.csv
@@ -45,6 +45,6 @@ hdfs dfs -put surveys_responses.csv /user/w205/hospital_compare/survey_csv/surve
 echo "# data loading successfully completed!"
 
 
-echo "# remove local folder"
+echo "# remove local folder, done!"
 cd ..
 rm /data/lei_ex1 -r
