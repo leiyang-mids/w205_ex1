@@ -1,9 +1,11 @@
 Assumptions:
-1. w205 super user exists
-2. local directory /data exists
-3. hdfs directory /user/w205 exists
+
+1. w205 super user exists;
+2. local directory /data exists;
+3. hdfs directory /user/w205 exists;
 
 Notes:
+
 1. e_tableName indicates an external table
 2. m_tableName indicates a managed table
 3. all external tables are using string type for each column in the file, to keep all data available for exploration
