@@ -1,3 +1,6 @@
+-- to display column name in the query
+set hive.cli.print.header=true;
+
 -- external table for effective_care.csv
 drop table e_effective;
 create external table e_effective (
