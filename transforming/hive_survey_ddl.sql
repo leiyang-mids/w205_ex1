@@ -28,6 +28,6 @@ create table m_survey as
     split(Overall_Ach_Pts, ' ')[0]/split(Overall_Ach_Pts, ' ')[3] as Overall_Ach_Pts,
     split(Overall_Imp_Pts, ' ')[0]/split(Overall_Imp_Pts, ' ')[3] as Overall_Imp_Pts,
     split(Overall_Dim_Score, ' ')[0]/split(Overall_Dim_Score, ' ')[3] as Overall_Dim_Score,
-    split(HCAHPS_Base_Score, ' ')[0]/split(HCAHPS_Base_Score, ' ')[3] as HCAHPS_Base_Score,
-    split(HCAHPS_Consistency_Score, ' ')[0]/split(HCAHPS_Consistency_Score, ' ')[3] as HCAHPS_Consistency_Score
+    cast(HCAHPS_Base_Score as int) as HCAHPS_Base_Score,
+    cast(HCAHPS_Consistency_Score as int) as HCAHPS_Consistency_Score
   from e_hospital h inner join e_survey s on h.id = s.provider_id;
