@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 def GetScore(OutOfString):
     try:
         elem = [x for x in OutOfString.lower().split(' ') if x is not '']        
