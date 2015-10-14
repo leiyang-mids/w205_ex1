@@ -1,3 +1,6 @@
+-- 0). get the maximum value of score in effective care, for later normalization
+select max(score) from m_effective;
+
 -- 1). evaluate based on effective care
 select
    h.state, h.city, h.name,
