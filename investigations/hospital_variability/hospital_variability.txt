@@ -1,0 +1,14 @@
+Ranking variability between procedures based on "effective care" scores, the top 10 procedures with highest variability are:
+
+m.id	m.name	    	    	       	     		   	 	     	    	       	    	var_score
+ED_1b	Median Time from ED Arrival to ED Departure for Admitted ED Patients				8580.39113801641
+ED_2b	Admit Decision Time to ED Departure Time for Admitted Patients					3866.5478334453533
+OP_18b	Median Time from ED Arrival to ED Departure for Discharged ED Patients				1599.8222575479722
+OP_3b	Median Time to Transfer to Another Facility for Acute Coronary Intervention- Reporting Rate	846.7562385396768
+STK_4	Thrombolytic Therapy	   	   	    	      	       		     	       		481.15044696514394
+OP_23	Head CT Scan Results for Acute Ischemic Stroke or Hemorrhagic Stroke Patients who Received 
+	Head CT or MRI Scan Interpretation Within 45 Minutes of ED Arrival				477.28613326923687
+AMI_7a	Fibrinolytic Therapy Received within 30 Minutes of Hospital Arrival				352.6666666666667
+OP_2	Fibrinolytic Therapy Received Within 30 Minutes of ED Arrival	     				318.51904655825354
+OP_21	Median Time to Pain Management for Long Bone Fracture						311.75465115978335
+OP_20	Median Time from ED Arrival to Provider Contact for ED patients					279.649004931685

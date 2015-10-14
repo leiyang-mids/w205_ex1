@@ -1,0 +1,30 @@
+Evaluate correlation coefficients between each survey question and average scores of the hospital:
+
+com_nur_ach	     -0.233592967
+com_nur_imp	     -0.124452378
+com_nur_dim	     -0.214633223
+com_doc_ach	     -0.336601836
+com_doc_imp	     -0.132193697
+com_doc_dim	     -0.321436898
+res_staff_ach	     -0.313177165
+res_staff_imp	     -0.163385167
+res_staff_dim	     -0.294141106
+pain_mgmt_ach	     -0.17383727
+pain_mgmt_imp	     -0.096010847
+pain_mgmt_dim	     -0.165675196
+com_meds_ach	     -0.213289253
+com_meds_imp	     -0.135413555
+com_meds_dim	     -0.204923858
+cq_env_ach	     -0.306792238
+cq_env_imp	     -0.156646139
+cq_env_dim	     -0.290539999
+dis_info_ach	     -0.156906645
+dis_info_imp	     -0.125233613
+dis_info_dim	     -0.162424085
+overall_ach_pts	     -0.08623336
+overall_imp_pts	     -0.078665128
+overall_dim_score    -0.095158971
+hcahps_base_score    -0.270893651
+hcahps_consistency_score	-0.236512089
+
+There is no significant correlation between survey question and average score of the hospital.
