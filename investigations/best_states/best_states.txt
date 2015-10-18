@@ -1,13 +1,13 @@
 Query return for best states in terms of quality of care:
 
 rank	state	score
-1	    PR	  0.8407
-2	    GU	  0.8257
-3	    DE	  0.8014
-4	    NJ  	0.7874
-5	    VT	  0.7826
-6	    NH	  0.7825
-7	    DC  	0.7814
-8	    CA  	0.7783
-9	    FL  	0.7775
-10	  HI  	0.7771
+1	PR	0.8407
+2	GU	0.8257
+3	DE	0.8014
+4	NJ	0.7874
+5	VT	0.7826
+6	NH	0.7825
+7	DC	0.7814
+8	CA	0.7783
+9	FL	0.7775
+10	HI	0.7771
