@@ -34,7 +34,7 @@ from(
     h.state
   group by h.state
 ) final
--- step 5: rank the final score, there a bunch ties, so we show the top 100
+-- step 5: rank the final score, show top 10
 select
   rank() OVER (
       ORDER by final_score desc

@@ -39,7 +39,7 @@ from(
     h.id, h.state, h.city, h.name
   group by h.id, h.state, h.city, h.name
 ) final
--- step 5: rank the final score, there a bunch ties, so we show the top 100
+-- step 5: rank the final score, there are a bunch ties, so we show the top 100
 select
   rank() OVER (
       ORDER by final_score desc
