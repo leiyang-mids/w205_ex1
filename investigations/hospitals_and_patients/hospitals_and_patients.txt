@@ -1,30 +1,31 @@
-Evaluate correlation coefficients between each survey question and average scores of the hospital:
+Evaluate correlation coefficients (transpose of query output) between each survey question and average scores of the hospital:
 
-com_nur_ach	     -0.233592967
-com_nur_imp	     -0.124452378
-com_nur_dim	     -0.214633223
-com_doc_ach	     -0.336601836
-com_doc_imp	     -0.132193697
-com_doc_dim	     -0.321436898
-res_staff_ach	     -0.313177165
-res_staff_imp	     -0.163385167
-res_staff_dim	     -0.294141106
-pain_mgmt_ach	     -0.17383727
-pain_mgmt_imp	     -0.096010847
-pain_mgmt_dim	     -0.165675196
-com_meds_ach	     -0.213289253
-com_meds_imp	     -0.135413555
-com_meds_dim	     -0.204923858
-cq_env_ach	     -0.306792238
-cq_env_imp	     -0.156646139
-cq_env_dim	     -0.290539999
-dis_info_ach	     -0.156906645
-dis_info_imp	     -0.125233613
-dis_info_dim	     -0.162424085
-overall_ach_pts	     -0.08623336
-overall_imp_pts	     -0.078665128
-overall_dim_score    -0.095158971
-hcahps_base_score    -0.270893651
-hcahps_consistency_score	-0.236512089
+survey_question correlation_coefficient
+com_nur_ach	-0.076398269
+com_nur_imp	-0.078546084
+com_nur_dim	-0.070171954
+com_doc_ach	-0.242349614
+com_doc_imp	-0.118153874
+com_doc_dim	-0.237521172
+res_staff_ach	-0.184278378
+res_staff_imp	-0.151448975
+res_staff_dim	-0.176500125
+pain_mgmt_ach	-0.035089265
+pain_mgmt_imp	-0.061967279
+pain_mgmt_dim	-0.042384563
+com_meds_ac	-0.093802376
+com_meds_imp	-0.089883738
+com_meds_dim	-0.09533456
+cq_env_ach	-0.178775884
+cq_env_imp	-0.147827058
+cq_env_dim	-0.17011489
+dis_info_ach	0.054188277
+dis_info_imp	0.019137887
+dis_info_dim	0.030642545
+overall_ach_pts	0.122496586
+overall_imp_pts	0.041867626
+overall_dim_score	0.108807901
+hcahps_base_score	-0.098264022
+hcahps_consistency_score	-0.0103356
 
 There is no significant correlation between survey question and average score of the hospital.
