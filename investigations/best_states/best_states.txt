@@ -1,40 +1,13 @@
-1). hospital ranking based on the highest score of "effective care" alone:
-h.state	     avg_score
-DC	     106.25603864734299
-DE	     103.83870967741936
-MD	     103.56720977596741
-NY	     99.62384202827889
-NJ	     99.48931735278791
-NV	     98.29555895865238
-CA	     98.03448708301981
-CT	     97.57449664429531
-NH	     97.4892703862661
-MA	     96.88655737704919
+Query return for best states in terms of quality of care:
 
-2). hospital ranking based on the lowest "readmission rate" alone:
-h.state	     avg_score
-GU	     16.299999999999997
-PR	     15.18363636363637
-AR	     14.848527131782944
-WV	     14.775223214285706
-MS	     14.751128818061112
-KY	     14.670189098998874
-TN	     14.475200803212857
-NY	     14.439765395894426
-DC	     14.379347826086953
-OK	     14.31245283018868
-
-3). hospital ranking based on the highest normalized socre from combination of "effective care" and "readmission rate":
-m.state	     avg_score
-DC	     9.00474903791043
-DE	     8.799890650628761
-MD	     8.776882184404018
-NY	     8.44269847697277
-NJ	     8.431298080744748
-NV	     8.330132115140023
-CA	     8.30800737991746
-CT	     8.269025139347045
-NH	     8.261802575107277
-MA	     8.21072520144484
-
-From the results we can see #1 and #2 query gives the identical ranking, which indicates "effective care" is the main criterion for ranking state, same as hospitals.
+rank	state	score
+1	    PR	  0.8407
+2	    GU	  0.8257
+3	    DE	  0.8014
+4	    NJ  	0.7874
+5	    VT	  0.7826
+6	    NH	  0.7825
+7	    DC  	0.7814
+8	    CA  	0.7783
+9	    FL  	0.7775
+10	  HI  	0.7771

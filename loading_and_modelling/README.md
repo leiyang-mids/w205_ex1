@@ -1,6 +1,6 @@
 Assumptions:
 
-1. w205 super user exists;
+1. w205 super user exists, and has the execution right on shell script;
 2. local directory /data exists;
 3. hdfs directory /user/w205 exists;
 

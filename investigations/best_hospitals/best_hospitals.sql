@@ -1,45 +1,49 @@
--- 0). get the maximum value of score in effective care, for later normalization
-select max(score) from m_effective;
+-- Assumptions:
+-- Since different measure has different scales in score in effective table,
+-- we naively assume, for all measures, higher score indicates better quality.
+-- In addition, for each measure where its readmission rate is available,
+-- we take the mean between the normalized inverse readmission score and effective score as the final score.
+-- Fianlly for each hospital we take the average over the final scores of each meausre,
+-- based on which hospital overall quality is ranked.
 
--- 1). evaluate based on effective care
+-- SQL statement:
+from(
+  from(
+    -- step 1: get max effective score for each measure item for normalization
+    from(
+      select
+        e.m_id,
+        max(e.score) as max_score
+      from m_effective e
+      group by e.m_id
+    ) norm
+    -- step 2a: join with effective table by measure_id and
+    right join m_effective e on e.m_id = norm.m_id
+    -- step 2b: join with readmission table by measure_id and hospital id
+    left join m_readmission r on r.m_id = e.m_id and r.h_id = e.h_id
+    select
+      -- step 2c: get join score if readmission rate is available
+      case
+        when r.score is null and e.score is null then null
+        when r.score is null and e.score is not null then e.score/norm.max_score
+        when r.score is not null and e.score is null then 1-r.score/100
+        else ( (1-r.score/100) + e.score/norm.max_score ) / 2
+      end as join_norm_score,
+      e.h_id
+  ) norm_score
+  -- step 3: join with hospital table to get name, location etc.
+  left join m_hospital h on norm_score.h_id = h.id
+  select
+    -- step 4: calculate the average join score for each hospital
+    cast(avg(join_norm_score) AS DECIMAL(10,4)) as final_score,
+    h.id, h.state, h.city, h.name
+  group by h.id, h.state, h.city, h.name
+) final
+-- step 5: rank the final score, there a bunch ties, so we show the top 100
 select
-   h.state, h.city, h.name,
-   avg(e.score) as avg_score
-from m_effective e left join m_hospital h
-on e.h_id = h.id
-group by h.name, h.city, h.state
-order by avg_score desc
-limit 10;
-
--- 2). evaluate based on readmission
-select
-  h.state, h.city, h.name,
-  avg(r.score) as avg_score
-from m_readmission r left join m_hospital h
-on r.h_id = h.id
-group by h.state, h.city, h.name
-having avg_score is not null
-order by avg_score
-limit 10;
-
--- 3). evaluate based on combination of readmission and effective care
--- Note: the column maximum (1180) for normalization is obtained from query #0,
--- there is some syntax issue I need to figure out in order to write everything into one query.
--- here we take the average between normalized score effective and reverse score of readmission.
-from (
-select
-  h.state, h.city, h.name,
-  case
-    when r.score is null and e.score is null then null
-    when r.score is null and e.score is not null then 100*e.score/1180
-    when r.score is not null and e.score is null then 100-r.score
-    else ( (100-r.score) + 100*e.score/1180 ) / 2
-  end as overall_score
-  from
-    m_hospital h right join m_effective e on h.id = e.h_id
-    left join m_readmission r on e.h_id=r.h_id and e.m_id=r.m_id
-) m
-select m.state, m.city, m.name, avg(m.overall_score) as avg_score
-group by m.state, m.city, m.name
-order by avg_score desc
-limit 10;
+  rank() OVER (
+      ORDER by final_score desc
+  ) as rank,
+  final_score as score, id as id, state as state,
+  city as city, name as name
+limit 100;
