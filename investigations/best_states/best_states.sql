@@ -1,3 +1,6 @@
+-- Note: the query structure is identical with those for hospital,
+-- only difference is the aggregation level (group by) is changed to state
+
 -- 1). evaluate based on effective care
 select
    h.state,
@@ -6,7 +9,7 @@ from m_effective e left join m_hospital h
 on e.h_id = h.id
 group by h.state
 order by avg_score desc
-limit 10; 
+limit 10;
 
 -- 2). evaluate based on readmission
 select
@@ -21,17 +24,17 @@ limit 10;
 
 -- 3). evaluate based on combination of readmission and effective care
 from (
-  select 
+  select
   h.state,
-  case 
+  case
     when r.score is null and e.score is null then null
     when r.score is null and e.score is not null then 100*e.score/1180
     when r.score is not null and e.score is null then 100-r.score
     else ( (100-r.score) + 100*e.score/1180 ) / 2
   end as overall_score
-  from 
+  from
     m_hospital h right join m_effective e on h.id = e.h_id
-    left join m_readmission r on e.h_id=r.h_id and e.m_id=r.m_id 
+    left join m_readmission r on e.h_id=r.h_id and e.m_id=r.m_id
 ) m
 select m.state, avg(m.overall_score) as avg_score
 group by m.state

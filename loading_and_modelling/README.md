@@ -6,7 +6,7 @@ Assumptions:
 
 Notes:
 
-1. e_tableName indicates an external table
-2. m_tableName indicates a managed table
+1. e_<tableName> indicates an external table
+2. m_<tableName> indicates a managed table
 3. all external tables are using string type for each column in the file, to keep all data available for exploration
 4. managed table will define different variable type as appropriate
